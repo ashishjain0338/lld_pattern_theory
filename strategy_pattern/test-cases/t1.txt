@@ -1,0 +1,12 @@
+help
+add 1 bike
+add 2 car
+add 3 walk
+state
+remove 1
+state
+navigate 1
+navigate 2
+navigate 3
+change 3 distance
+navigate 3

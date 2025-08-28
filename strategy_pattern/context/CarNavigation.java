@@ -5,6 +5,11 @@ public class CarNavigation extends Navigation{
     public CarNavigation(String uniqueId){
         super(uniqueId, "time");
     }
+
+    public String toString(){
+        return "car";
+    }
+
     /*
      * Example: where context is used to do something by concrete class.
      */

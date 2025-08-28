@@ -7,6 +7,10 @@ public class BikeNavigation extends Navigation {
         super(uniqueId, "distance");
     }
 
+    public String toString(){
+        return "bike";
+    }
+
     /*
      * Example: where context is used to do something by concrete class.
      */

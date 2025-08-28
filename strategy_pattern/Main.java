@@ -1,20 +1,20 @@
 package strategy_pattern;
 
-import strategy_pattern.context.*;
+import java.util.Map;
+import java.util.TreeMap;
+
+import testcase_executor.TestCaseExecutor;
+import testcase_executor.testcase_runner.TestCaseRunner;
 
 public class Main {
     public static void main(String[] args){
-        System.out.println("Hello World");
-        // Let's create some nav objects
-        Navigation nav1 = new WalkNavigation("walk-obj1");
-        Navigation nav2 = new CarNavigation("car-obj1");
-        Navigation nav3 = new BikeNavigation("bike-obj1");
+        Map<String, String> params = new TreeMap<>();
+        // params.put("reader_type", "file");
+        params.put("reader_type", "terminal");
+        params.put("filename", "test-cases/t1.txt");
 
-        nav1.navigate(23);
-        nav2.navigate(45);
-        nav3.navigate(67);
-        nav3.changeRouteStrategy("scenic");
-        nav3.navigate(1);
-
+        TestCaseRunner runnerObj = new StrategyPatternTestCaseRunner();
+        TestCaseExecutor executorObj = new TestCaseExecutor(params, runnerObj);
+        executorObj.execute();
     }
 }

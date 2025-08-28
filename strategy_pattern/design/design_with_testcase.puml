@@ -9,37 +9,41 @@ class Dummy {
 }'/
 
 class TestCaseExecutor{
-    testCaseReaderObj: TestCaseReader
-    testCaseRunnerObj : TestCaseRunner
+    -readerObj: TestCaseReader
+    -runnerObj : TestCaseRunner
     +execute
 }
 
 TestCaseExecutor *-- TestCaseReader
 TestCaseExecutor *-- TestCaseRunner
 abstract TestCaseReader{
-
+    +setup_config()
+    +readNextLine()
 }
 
 class TextFileReader extends TestCaseReader{
-
+    +setup_config()
+    +readNextLine()
 }
 
 class UserInput extends TestCaseReader{
-
+    +setup_config()
+    +readNextLine()
 }
 
 abstract class TestCaseRunner{
-    +help()
-    +reset()
-    +address_line()
-    +show_state()
+    +addressSingleLine()
 }
 
-class NavigaionTestCaseRunner extends TestCaseRunner{
-    +help()
-    +reset()
+class StrategyPatternTestCaseRunner extends TestCaseRunner{
+    -state : HashMap<String, Navigation>
+
     +address_line()
-    +show_state()
+    -showState()
+    -addUser()
+    -removeUser()
+    -changeRouteStrategy()
+    -navigate()
 }
 
 abstract class Navigation{
@@ -86,5 +90,5 @@ class RouteStrategyFactory{
 Navigation *-- RouteStrategy : has-a
 RouteStrategyFactory --> RouteStrategy : creates
 Navigation --> RouteStrategyFactory : getRouteObj
-NavigaionTestCaseRunner --> Navigation : uses
+StrategyPatternTestCaseRunner --> Navigation : uses
 @enduml

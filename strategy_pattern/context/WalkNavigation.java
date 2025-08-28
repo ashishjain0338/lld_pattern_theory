@@ -8,6 +8,10 @@ public class WalkNavigation extends Navigation{
         super(uniqueId, "scenic");
     }
 
+    public String toString(){
+        return "walk";
+    }
+
     /*
      * Example: where context is used to do something by concrete class.
      */

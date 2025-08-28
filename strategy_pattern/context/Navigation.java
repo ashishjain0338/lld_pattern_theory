@@ -9,6 +9,7 @@ public abstract class Navigation {
     float curPos = 0;
     String uniqueId = "null";
     abstract float calculateCurrentSpeed();
+    abstract public String toString();
 
     Navigation(String uniqueId ,String routeStrategyType){
         // RouteStrategyFactory rtFactoryObj = new RouteStrategyFactory();
@@ -26,6 +27,10 @@ public abstract class Navigation {
         System.out.printf("Changing the Route Strategy of %s from current %s to %s\n", 
         uniqueId, rtStrategy.toString(), newStrategy);
         this.rtStrategy = RouteStrategyFactory.getRouteObj(newStrategy);
+    }
+
+    public RouteStrategy getRtStrategy() {
+        return rtStrategy;
     }
 
     /*
