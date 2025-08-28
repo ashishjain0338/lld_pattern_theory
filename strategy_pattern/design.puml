@@ -1,0 +1,55 @@
+@startuml abc
+
+/'
+class Dummy {
+-field1
+#field2
+~method1()
++method2()
+}'/
+
+abstract class Navigation{
+    +rtStrategy : RouteStrategy
+    +navigate()
+    +changeRouteStrategy()
+}
+
+class BikeNavigation extends Navigation{
+    +navigate()
+}
+
+class CarNavigation extends Navigation{
+}
+
+class WalkNavigation extends Navigation{
+    +navigate()
+}
+
+abstract class RouteStrategy{
+    +navigate()
+    +estimateTimeOfArrival()
+}
+
+class ScenicTimeRouteFinding extends RouteStrategy{
+    +navigate()
+    +estimateTimeOfArrival()
+}
+
+class ShortestDistanceRouteFinding extends RouteStrategy{
+    +navigate()
+    +estimateTimeOfArrival()
+}
+
+class ShortestTimeRouteFinding extends RouteStrategy{
+    +navigate()
+    +estimateTimeOfArrival()
+}
+
+class RouteStrategyFactory{
+    +getRouteObj()
+}
+
+Navigation *-- RouteStrategy : has-a
+RouteStrategyFactory --> RouteStrategy : creates
+Navigation --> RouteStrategyFactory : getRouteObj
+@enduml
