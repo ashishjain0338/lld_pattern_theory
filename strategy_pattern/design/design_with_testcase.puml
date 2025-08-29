@@ -1,13 +1,5 @@
 @startuml Navigation_With_Route_Strategy_And_Testcase
-
-/'
-class Dummy {
--field1
-#field2
-~method1()
-+method2()
-}'/
-
+title Strategy Pattern - Navigation with Route Strategy Example Along with Testcase setup
 class TestCaseExecutor{
     -readerObj: TestCaseReader
     -runnerObj : TestCaseRunner

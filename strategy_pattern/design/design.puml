@@ -1,5 +1,7 @@
 @startuml Navigation_With_Route_Strategy
 
+title Strategy Pattern - Navigation with Route Strategy Example
+
 /'
 class Dummy {
 -field1
