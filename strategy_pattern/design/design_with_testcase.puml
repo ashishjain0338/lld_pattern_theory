@@ -1,4 +1,4 @@
-@startuml Navigation_With_Route_Strategy_And_Testcase
+@startuml Navigation_With_Route_Strategy_And_Testcase2
 
 /'
 class Dummy {
