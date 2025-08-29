@@ -1,0 +1,45 @@
+name: Render PlantUML Diagrams
+
+on:
+  push:
+    paths:
+      - "**/*.puml"
+  pull_request:
+    paths:
+      - "**/*.puml"
+
+jobs:
+  render-puml:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java (required for PlantUML jar)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Download PlantUML
+        run: |
+          curl -L -o plantuml.jar https://github.com/plantuml/plantuml/releases/latest/download/plantuml.jar
+
+      - name: Generate images from .puml
+        run: |
+          mkdir -p images
+          for f in $(find . -name "*.puml"); do
+            echo "Rendering $f..."
+            java -jar plantuml.jar -tpng "$f" -o "$(pwd)/images"
+          done
+
+      - name: Commit and push rendered images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add images/
+          git commit -m "Auto-update UML diagrams"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

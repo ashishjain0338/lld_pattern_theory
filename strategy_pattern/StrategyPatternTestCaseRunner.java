@@ -77,6 +77,7 @@ public class StrategyPatternTestCaseRunner extends TestCaseRunner {
         user.navigate(8);
     }
 
+    @Override
     public boolean addressSingleLine(String line) {
         try {
             String[] words = line.split(" ");

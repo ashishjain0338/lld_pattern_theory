@@ -1,4 +1,4 @@
-@startuml abc
+@startuml Navigation_With_Route_Strategy
 
 /'
 class Dummy {
