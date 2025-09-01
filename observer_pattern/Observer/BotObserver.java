@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class BotObserver extends BaseObserver{
     public BotObserver(String id){
-        super(id);
+        super(id, "bot");
     }
 
     @Override

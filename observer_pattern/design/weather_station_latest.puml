@@ -1,4 +1,4 @@
-@startuml Observer Pattern : Weather Station
+@startuml Observer_Pattern_Weather_Station
 
 
 interface Observable{

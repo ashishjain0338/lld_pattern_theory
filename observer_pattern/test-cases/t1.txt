@@ -1,0 +1,14 @@
+help
+add service rain 1
+add service temp 2
+add service temp 3
+add service temp 4
+state
+remove service 3
+state
+add user mobile 1
+add user big-screen 2
+add user bot 3
+state
+remove user 2
+state

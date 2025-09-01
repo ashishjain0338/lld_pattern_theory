@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class MobileObserver extends BaseObserver{
     public MobileObserver(String id){
-        super(id);
+        super(id, "mobile");
     }
 
     @Override

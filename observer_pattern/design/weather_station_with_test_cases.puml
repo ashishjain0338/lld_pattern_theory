@@ -1,0 +1,92 @@
+@startuml Observer_Pattern_Weather_Station_with_TestCases
+
+class TestCaseExecutor{
+    -readerObj: TestCaseReader
+    -runnerObj : TestCaseRunner
+    +execute
+}
+
+TestCaseExecutor *-- TestCaseReader
+TestCaseExecutor *-- TestCaseRunner
+abstract TestCaseReader{
+    +setup_config()
+    +readNextLine()
+}
+
+class TextFileReader extends TestCaseReader{
+    +setup_config()
+    +readNextLine()
+}
+
+class UserInput extends TestCaseReader{
+    +setup_config()
+    +readNextLine()
+}
+
+abstract class TestCaseRunner{
+    +addressSingleLine()
+}
+
+class ObservablePatternTestCaseRunner extends TestCaseRunner{
+    -svcMap : HashMap<String, Observable>
+    -userMap : HashMap<String, Observer>
+
+    +address_line()
+    -showState()
+    -addService()
+    -removeService()
+    -addUser()
+    -removeUser()
+    -subscribe()
+    -unsubscribe()
+    -update()
+}
+
+class ObserverFactory{
+    +getObserverObj()
+}
+
+interface Observable{
+    +addObserver()
+    +removeObserver()
+    +updateContext()
+}
+
+class RainfallPredictorService extends Observable{
+    map<location, Observer> context;
+    -predictNextHourRainfall()
+    +addObserver()
+    +removeObserver()
+    +updateContext()
+}
+
+class TemperatureSensorService extends Observable{
+    map<location, Observer> context;
+
+    -cleanSensorData()
+    +addObserver()
+    +removeObserver()
+    +updateContext()
+}
+
+interface Observer{
+    +update_context()
+}
+
+class Mobile extends Observer{
+    +update_context()
+}
+
+class BigScreen extends Observer{
+    +update_context()
+}
+
+class Bots extends Observer{
+    +update_context()
+}
+
+ObservablePatternTestCaseRunner --> ObserverFactory: getObserverObj
+ObserverFactory --> Observer: creates-obj
+ObservablePatternTestCaseRunner *-- Observable: has-a
+Observable *-- Observer: has-a
+@enduml

@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class BigScreenObserver extends BaseObserver{
     public BigScreenObserver(String id){
-        super(id);
+        super(id, "big-screen");
     }
 
     @Override

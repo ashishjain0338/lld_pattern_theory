@@ -1,7 +1,5 @@
 package observer_pattern.Observables;
 
-import java.util.Map;
-
 import observer_pattern.Observer.Observer;
 
 public interface Observable {
