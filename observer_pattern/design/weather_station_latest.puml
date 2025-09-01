@@ -1,0 +1,44 @@
+@startuml Observer Pattern : Weather Station
+
+
+interface Observable{
+    +addObserver()
+    +removeObserver()
+    +updateContext()
+}
+
+class RainfallPredictorService extends Observable{
+    map<location, Observer> context;
+    -predictNextHourRainfall()
+    +addObserver()
+    +removeObserver()
+    +updateContext()
+}
+
+class TemperatureSensorService extends Observable{
+    map<location, Observer> context;
+
+    -cleanSensorData()
+    +addObserver()
+    +removeObserver()
+    +updateContext()
+}
+
+interface Observer{
+    +update_context()
+}
+
+class Mobile extends Observer{
+    +update_context()
+}
+
+class BigScreen extends Observer{
+    +update_context()
+}
+
+class Bots extends Observer{
+    +update_context()
+}
+
+Observable *-- Observer: has-a
+@enduml

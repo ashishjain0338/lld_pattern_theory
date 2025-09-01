@@ -1,0 +1,62 @@
+@startuml Observer Pattern : Weather Station
+
+class WeatherStation{
+    +tempServiceObj : TemperatureSensorService
+    +rainfallPredictionServiceObj: RainfallPredictorService
+    +publisherObjs: list<<Publisher>>
+    +pushLocData()
+    +pushWeatherStationData()
+}
+
+class TemperatureSensorService{
+    -cleanSensorData()
+    +newReading()
+}
+
+class RainfallPredictorService{
+    -predictNextHourRainfall()
+    +newReading()
+}
+
+
+interface Publisher{
+    +addObserver()
+    +removeObserver()
+    +updateContext()
+}
+class LocationBasedObserver extends Publisher{
+    map<location, Observer> context;
+    +addObserver()
+    +removeObserver()
+    +updateContext()
+}
+
+class WeatherStationBasedObserver extends Publisher{
+    map<weatherStationId, Observer> context;
+    +addObserver()
+    +removeObserver()
+    +updateContext()
+}
+
+interface Observer{
+    +update_context()
+}
+
+class Mobile extends Observer{
+    +update_context()
+}
+
+class BigScreen extends Observer{
+    +update_context()
+}
+
+class Bots extends Observer{
+    +update_context()
+}
+
+Publisher *-- Observer: has-a
+
+TemperatureSensorService --* WeatherStation: has-a
+RainfallPredictorService --* WeatherStation: has-a
+Publisher --* WeatherStation: has-a
+@enduml
