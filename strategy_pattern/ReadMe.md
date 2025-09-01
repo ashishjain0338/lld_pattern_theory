@@ -7,8 +7,12 @@ Key Idea: Define a family of algorithms, encapsulate each one, and make them int
 
 ## Problem Statement:
 ---
-How do you design a navigation system (bike, car, walk) that can dynamically choose between multiple route-finding approaches (shortest time, shortest distance, scenic) without bloating the navigation classes or hardcoding conditional logic?
+How do you design a navigation system (`bike, car, walk`) that can dynamically choose between multiple route-finding approaches (`shortest time, shortest distance, scenic`) without bloating the navigation classes or hardcoding conditional logic?
 
+## Try the project
+```bash
+java Main.java
+```
 ## Solution
 ---
 ![image-text](https://github.com/ashishjain0338/lld_pattern_theory/blob/main/images/Navigation_With_Route_Strategy.png)
