@@ -1,0 +1,47 @@
+@startuml Decorator_Pattern_Email_Notification_System
+
+title: "Decorator Pattern: Email Notification System"
+
+interface EmailNotification{
+    +prepareMessage()
+    +send()
+}
+
+class TextEmail implements EmailNotification{
+    +prepareMessage()
+    +send()
+}
+
+abstract class EmailDecorators implements EmailNotification{
+    +prepareMessage()
+    +send()
+}
+
+class AttachFileDecorator extends EmailDecorators{
+    -filename
+    -filetype
+    +prepareMessage()
+}
+
+class CompressMessageDecorator extends EmailDecorators{
+    -compress()
+    +prepareMessage()
+}
+
+class EncryptMessageDecorator extends EmailDecorators{
+    -encryptionMethod
+
+    -encryptMessage()
+    +prepareMessage()
+}
+
+class EmailContent{
+    headers: ArrayList<String>
+    body: ArrayList<String>
+    footer: ArrayList<String>
+
+    -convertArrayListToString()
+    +toString()
+}
+
+@enduml
