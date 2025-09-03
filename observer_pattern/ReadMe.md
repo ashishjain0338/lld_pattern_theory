@@ -51,10 +51,16 @@ This project demonstrates the Observer Pattern by modeling the Weather Station s
 4. **Open/Closed Principle** → System is open for extension but closed for modification.  
 
 ---
----
-
-## Full UML Design With Runner
-![Design-Image](https://github.com/ashishjain0338/lld_pattern_theory/blob/main/images/Observer_Pattern_Weather_Station_with_TestCases.png) 
 
 ## Old Design
+
 ![Design-Image](https://github.com/ashishjain0338/lld_pattern_theory/blob/main/images/Observer_Pattern_Weather_Station_Old.png) 
+
+---
+### Key Differences (Old vs latest)
+1. `WeatherStation` acts as the central entity/ manager managing the Observerable and Publisher (subscribers) services, making it very tightly coupled; any extension (eg, adding `humidityService` as observable) would mean the change MUST go through WeatherStation. This is avoided in `latest-design` where `Observables` itself manages the logic to add/remove/notify subscribers.
+
+---
+
+## FYI: Full UML Design With Runner
+![Design-Image](https://github.com/ashishjain0338/lld_pattern_theory/blob/main/images/Observer_Pattern_Weather_Station_with_TestCases.png) 
