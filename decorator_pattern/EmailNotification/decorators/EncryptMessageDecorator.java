@@ -16,6 +16,14 @@ public class EncryptMessageDecorator extends EmailDecorators{
         
     }
 
+    @Override
+    public String toString(){
+        String backtrackedStr = this.emailObj.toString();
+
+        return String.format("Encrypt(encryptionMethod=%s,%s)", this.encryptionMethod, backtrackedStr);
+    }
+
+
     public EmailContent prepareMessage(){
         EmailContent emailContent = this.emailObj.prepareMessage();
         String msg = String.format("Message encrpyted with %s Encryption", this.encryptionMethod);

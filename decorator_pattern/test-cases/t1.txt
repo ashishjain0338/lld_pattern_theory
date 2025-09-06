@@ -1,0 +1,11 @@
+help 
+add 1 Hello World
+add 2 Hey There, How are you
+add 3 Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum
+state
+send 1
+send 2
+send 3
+state
+exit
+

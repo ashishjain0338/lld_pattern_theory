@@ -21,6 +21,13 @@ public class AttachFileDecorator extends EmailDecorators{
         return emailContent;
     }
 
+    @Override
+    public String toString(){
+        String backtrackedStr = this.emailObj.toString();
+        return String.format("AttachFile(filename=%s, filetype=%s, %s)", filename, filetype, backtrackedStr);
+    }
+
+
 
     
 }

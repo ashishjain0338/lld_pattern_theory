@@ -22,4 +22,11 @@ public abstract class EmailDecorators implements EmailNotification{
     public void send(){
         System.out.println(prepareMessage().toString());
     }
+
+    @Override
+    public String toString(){
+        String backtrackedStr = this.emailObj.toString();
+
+        return String.format("EmailDecorators(%s)", backtrackedStr);
+    }
 }

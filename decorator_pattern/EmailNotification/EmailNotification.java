@@ -7,4 +7,5 @@ public interface EmailNotification {
 
     public EmailContent prepareMessage();
     public void send();
+    public String toString();
 }

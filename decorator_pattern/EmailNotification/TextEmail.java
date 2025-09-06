@@ -19,5 +19,10 @@ public class TextEmail implements EmailNotification{
     public void send(){
         System.out.println(this.prepareMessage().toString());
     }
+
+    @Override
+    public String toString(){
+        return String.format("TextEmail(body='%s')", this.body);
+    }
     
 }

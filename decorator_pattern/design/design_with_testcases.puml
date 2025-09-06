@@ -1,0 +1,87 @@
+@startuml Decorator_Pattern_Email_Notification_System_TC
+
+title: "Decorator Pattern: Email Notification System"
+
+class TestCaseExecutor{
+    -readerObj: TestCaseReader
+    -runnerObj : TestCaseRunner
+    +execute
+}
+
+TestCaseExecutor *-- TestCaseReader
+TestCaseExecutor *-- TestCaseRunner
+abstract TestCaseReader{
+    +setup_config()
+    +readNextLine()
+}
+
+class TextFileReader extends TestCaseReader{
+    +setup_config()
+    +readNextLine()
+}
+
+class UserInput extends TestCaseReader{
+    +setup_config()
+    +readNextLine()
+}
+
+abstract class TestCaseRunner{
+    +addressSingleLine()
+}
+
+class DecoratorPatternTestCaseRunner extends TestCaseRunner{
+    -emailMap : HashMap<String, EmailNotification>
+
+    +address_line()
+    -showState()
+    -addEmail()
+    -removeEmail()
+    -updateEmail()
+    -sendEmail()
+}
+
+interface EmailNotification{
+    +prepareMessage()
+    +send()
+}
+
+class TextEmail implements EmailNotification{
+    +prepareMessage()
+    +send()
+}
+
+abstract class EmailDecorators implements EmailNotification{
+    +prepareMessage()
+    +send()
+}
+
+class AttachFileDecorator extends EmailDecorators{
+    -filename
+    -filetype
+    +prepareMessage()
+}
+
+class CompressMessageDecorator extends EmailDecorators{
+    -compress()
+    +prepareMessage()
+}
+
+class EncryptMessageDecorator extends EmailDecorators{
+    -encryptionMethod
+
+    -encryptMessage()
+    +prepareMessage()
+}
+
+class EmailContent{
+    headers: ArrayList<String>
+    body: ArrayList<String>
+    footer: ArrayList<String>
+
+    -convertArrayListToString()
+    +toString()
+}
+
+DecoratorPatternTestCaseRunner *-- EmailNotification: has-a
+EmailContent <-- EmailNotification: uses 
+@enduml

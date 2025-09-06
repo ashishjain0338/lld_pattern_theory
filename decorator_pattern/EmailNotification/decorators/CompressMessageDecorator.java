@@ -12,6 +12,14 @@ public class CompressMessageDecorator extends EmailDecorators{
         
     }
 
+    @Override
+    public String toString(){
+        String backtrackedStr = this.emailObj.toString();
+
+        return String.format("Compress(%s)", backtrackedStr);
+    }
+
+
     String compress(String input){
         // Run-length Compression
         String out = "";

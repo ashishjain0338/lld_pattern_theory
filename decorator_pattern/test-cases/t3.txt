@@ -1,0 +1,14 @@
+help 
+add 1 Hello World
+add 2 Hey There, How are you
+state
+update 1 attachfile image.png png
+update 1 encrypt
+update 1 compress
+update 2 encrypt
+update 2 compress
+state
+send 1
+send 2
+state
+exit
