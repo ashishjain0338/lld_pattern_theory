@@ -41,4 +41,6 @@ java Main.java
 3. Avoids Class Explosion: Without decorators, you’d need classes like EncryptedCompressedEmailWithAttachment. Decorators let you combine behaviors without creating exponential subclasses.
 4. Open/Closed Principle: Classes are open for extension (via new decorators) but closed for modification (base TextEmail remains untouched).
 
-## 
+---
+## FYI: Full UML Design With Runner
+![Design-Image](https://github.com/ashishjain0338/lld_pattern_theory/blob/main/images/Decorator_Pattern_Email_Notification_System_TC.png)
