@@ -23,3 +23,7 @@ java Main.java
 2. Flexibility: Each Navigation object can swap its RouteStrategy at runtime (`changeRouteStrategy()`), e.g., a user can shift from scenic to shortest-time without rewriting logic.
 3. Open/Closed Principle: Adding a new strategy (say `TollAvoidanceRouteFinding`) doesn’t require changing existing navigation code—just add a new class.
 4. Clean Separation: Navigation (context) is `decoupled` from route-finding logic (strategies).
+
+---
+## FYI: Full UML Design With Runner
+![design-image](https://github.com/ashishjain0338/lld_pattern_theory/blob/main/images/Navigation_With_Route_Strategy_And_Testcase.png)
